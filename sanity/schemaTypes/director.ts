@@ -9,23 +9,6 @@ export const director = defineType({
       name: "index",
       title: "Index",
       type: "number",
-
-      readOnly: true,
-
-      initialValue: async (_, context) => {
-        const client = context.getClient({
-          apiVersion: "2024-01-01",
-        });
-
-        const directors = await client.fetch(
-          `*[_type == "director"] | order(index desc)[0]{
-            index
-          }`
-        );
-
-        return directors?.index ? directors.index + 1 : 1;
-      },
-
       validation: (rule) => rule.required(),
     }),
     defineField({

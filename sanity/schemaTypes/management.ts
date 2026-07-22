@@ -9,23 +9,6 @@ export const management = defineType({
       name: "index",
       title: "Index",
       type: "number",
-
-      readOnly: true,
-
-      initialValue: async (_, context) => {
-        const client = context.getClient({
-          apiVersion: "2024-01-01",
-        });
-
-        const managements = await client.fetch(
-          `*[_type == "management"] | order(index desc)[0]{
-            index
-          }`
-        );
-
-        return managements?.index ? managements.index + 1 : 1;
-      },
-
       validation: (rule) => rule.required(),
     }),
     defineField({
