@@ -47,12 +47,12 @@ const Footer = () => {
 
         <div className="flex flex-col gap-7">
           <h4 className="text-[18px] font-medium text-black-100">Quicklinks</h4>
-          <div className="flex flex-col gap-5">
+          <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-8 gap-y-4">
             {quickLinks.map((item) => {
               const isExternal = item.href?.startsWith('https');
 
               return (
-                <Link
+                  <Link
                   key={item.title}
                   href={item.href}
                   target={isExternal ? "_blank" : undefined}

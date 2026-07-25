@@ -7,6 +7,7 @@ import { FaqsDataProps } from "@/components/FaqTabs";
 import { valueProps } from "@/app/(root)/(pages)/about-us/page";
 import { ContactDataProps } from "@/components/ContactTabs";
 import { enrollmentDataProps, KeyBenefitsDataProps } from "@/app/(root)/(pages)/pencare/page";
+import { MultiFundsProps } from "@/app/(root)/(pages)/multi-funds/page";
 
 export const NavbarLinks: { title: string; href?: string; children?: { icon: string; title: string; href: string }[] }[] = [
   { title: "Home", href: "/" },
@@ -16,6 +17,8 @@ export const NavbarLinks: { title: string; href?: string; children?: { icon: str
       { icon: "/images/retirement.png", title: "Retirement Savings Account (RSA)", href: "/retirement-savings-account" },
       { icon: "/images/hand-gear.png", title: "Voluntary Contributions (VC)", href: "/voluntary-contributions" },
       { icon: "/images/mortgage.png", title: "RSA Mortgage Equity Contribution", href: "/mortgage-equity-contribution" },
+      { icon: "/images/personal-pension.png" ,title: "Personal Pension Plan (PPP)", href: "/personal-pension-plan" },
+      { icon: "/images/multi-fund.png", title: "Multi Funds", href: "/multi-funds" },
       { icon: "/images/health-care.png", title: "PenCare", href: "/pencare" }
     ]
   },
@@ -93,6 +96,8 @@ export const services: { title: string; href: string }[] = [
   { title: "Retirement Savings Account (RSA)", href: "/retirement-savings-account" },
   { title: "Voluntary Contributions (VC)", href: "/voluntary-contributions" },
   { title: "RSA Mortgage Equity Contribution", href: "/mortgage-equity-contribution" },
+  { title: "Personal Pension Plan (PPP)", href: "/personal-pension-plan" },
+  { title: "Multi Funds", href: "/multi-funds" },
 ]
 
 export const contacts: { title: string; href?: string }[] = [
@@ -200,6 +205,43 @@ export const pensionPageData: PensionPageProps[] = [
     description: "Our rsa mortgage equity contribution is designed with your financial security in mind. We combine professional investment management with personalized service to ensure your retirement savings grow consistently over time.",
     features: ["Up to 25% of RSA balance", "Competitive interest rates", "Flexible repayment terms", "Maintained retirement savings"],
     benefits: ["Homeownership opportunity", "Lower mortgage rates", "Continued retirement savings", "Flexible repayment options"]
+  },
+  {
+    title: "Personal Pension Plan (PPP)",
+    description: `Secure Your Future, On Your Terms
+    
+    The Personal Pension Plan (PPP) is a flexible and voluntary retirement savings scheme introduced by the National Pension Commission (PenCom) in line with Section 2(3) of the Pension Reform Act (PRA) 2014.
+    
+    It is specifically designed to expand pension coverage to self-employed individuals and employees of organizations with fewer than three staff, ensuring that more Nigerians especially within the informal sector can enjoy financial security in retirement.`,
+    features: ["Trusted pension expertise", "Strong compliance with regulatory standards", "Customer-focused service delivery", "Secure and seamless contribution channels"],
+    benefits: ["Retirement Savings (for long-term security)", "Contingent Savings (accessible under specific guidelines)", "Funds are professionally managed and securely held under strict regulatory oversight", "Partial withdrawals may be allowed from the contingent portion, in line with PenCom guidelines"]
+  }
+]
+
+export const multifundData: MultiFundsProps[] = [
+  {
+    title: "Fund I – High Risk / High Return (Optional)",
+    criteria: ["Designed for contributors with a higher risk tolerance seeking potentially higher returns.", "Equity Exposure: Minimum of 20% and maximum of 75% in variable income instruments (e.g., equities)." ],
+    eligibility: ["Contributors aged 49 years and below.", "Must opt in through a formal request."]
+  },
+  {
+    title: "Fund II – Medium Risk / Medium Return",
+    criteria: ["Offers a balanced portfolio with moderate risk and return potential.", "Equity Exposure: Minimum of 10% and maximum of 55% in variable income instruments." ],
+    eligibility: ["Default fund for contributors aged 49 years and below.", "Contributors from Fund III may switch to this fund upon formal request."]
+  },
+  {
+    title: "Fund III – Moderate Risk (Pre-Retirement Fund)",
+    criteria: ["Designed for contributors nearing retirement, focusing on capital preservation with moderate growth.", "Equity Exposure: Minimum of 5% and maximum of 20% in variable income instruments." ],
+    eligibility: ["Mandatory for contributors aged 50 years and above." ]
+  },
+  {
+    title: "Fund IV – Low Risk (Retiree Fund)",
+    criteria: ["Focused on capital preservation and stable returns for retirees.", "Equity Exposure: Typically 0%, with a maximum of 10% at the Fund Manager’s discretion." ],
+    eligibility: ["Exclusively for retirees."]
+  },
+  {
+    title: "Key Notes",
+    criteria: [`"Variable income instruments” refer mainly to equity investments, which carry higher risk but offer potential for higher returns.`, "Switching between funds (where permitted) requires a formal request and must comply with regulatory guidelines.", "Your choice of fund should reflect your risk tolerance, age, and retirement goals."],
   }
 ]
 

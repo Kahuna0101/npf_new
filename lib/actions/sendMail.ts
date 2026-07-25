@@ -234,3 +234,126 @@ export async function SendNewsletterMail(data: any) {
     };
   }
 }
+
+export async function SendMultiFundFormMail(data: any) {
+  try {
+    const {
+      applicationType,      
+      penNo,
+      title,
+      surname,
+      firstName,
+      middleName,
+      ippisNo,
+      phoneNo1,
+      phoneNo2,
+      dateOfBirth,
+      email,
+      employerName,
+      preferredFund,
+      consent,
+    } = data;
+
+    const result = await resend.emails.send({
+      from: "NPF Pension <noreply@npfpensions.com.ng>",
+      to: ["contact@npfpensions.com.ng"],
+      subject: "New Multi-Fund Structure Consent Submission",
+
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+          <h2>New Multi-Fund Structure Consent Submission</h2>
+
+          <hr />
+
+          <h3>Application Details</h3>
+
+          <p>
+            <strong>Application Type:</strong>
+            ${applicationType}
+          </p>
+
+          <p>
+            <strong>PENSION No.:</strong>
+            ${penNo}
+          </p>
+
+          <p>
+            <strong>Preferred Fund:</strong>
+            ${preferredFund}
+          </p>
+
+          <hr />
+
+          <h3>Contributor Details</h3>
+
+          <p>
+            <strong>Title:</strong>
+            ${title}
+          </p>
+
+          <p>
+            <strong>Full Name:</strong>
+            ${surname} ${firstName} ${middleName || ""}
+          </p>
+
+          <p>
+            <strong>IPPIS No.:</strong>
+            ${ippisNo}
+          </p>
+
+          <p>
+            <strong>Date of Birth:</strong>
+            ${dateOfBirth}
+          </p>
+
+          <p>
+            <strong>Email Address:</strong>
+            ${email}
+          </p>
+
+          <p>
+            <strong>Phone No. 1:</strong>
+            ${phoneNo1}
+          </p>
+
+          <p>
+            <strong>Phone No. 2:</strong>
+            ${phoneNo2 || "Not provided"}
+          </p>
+
+          <p>
+            <strong>Name of Employer:</strong>
+            ${employerName}
+          </p>
+
+          <hr />
+
+          <h3>Attestation / Indemnity</h3>
+
+          <p>
+            <strong>Consent Accepted:</strong>
+            ${consent ? "Yes" : "No"}
+          </p>
+
+          <hr />
+
+          <p>
+            This submission was sent from the NPF Pensions website.
+          </p>
+        </div>
+      `,
+    });
+
+    return {
+      success: true,
+      data: result,
+    };
+  } catch (error) {
+    console.error(error);
+
+    return {
+      success: false,
+      error: "Failed to send Multi-Fund consent email",
+    };
+  }
+}
