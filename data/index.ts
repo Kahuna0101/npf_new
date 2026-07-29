@@ -32,7 +32,7 @@ export const NavbarLinks: { title: string; href?: string; children?: { icon: str
       { icon: "/images/downloads.png", title: "Audited Accounts", href: "/audited-accounts" },
       { icon: "/images/careers.png", title: "Careers", href: "/careers" },
       { icon: "/images/newsletter.png", title: "Newsletters", href: "/newsletters" },
-      { icon: "/images/gallery.png", title: "Gallery", href: "/galley" },
+      { icon: "/images/gallery.png", title: "Gallery", href: "/gallery" },
     ]
   },
   {
