@@ -19,6 +19,7 @@ export const NavbarLinks: { title: string; href?: string; children?: { icon: str
       { icon: "/images/mortgage.png", title: "RSA Mortgage Equity Contribution", href: "/mortgage-equity-contribution" },
       { icon: "/images/personal-pension.png" ,title: "Personal Pension Plan (PPP)", href: "/personal-pension-plan" },
       { icon: "/images/multi-fund.png", title: "Multi Funds", href: "/multi-funds" },
+      { icon: "/images/uncredited-funds.png", title: "Uncredited Funds", href: "/uncredited-funds" },
       { icon: "/images/health-care.png", title: "PenCare", href: "/pencare" }
     ]
   },
@@ -98,6 +99,7 @@ export const services: { title: string; href: string }[] = [
   { title: "RSA Mortgage Equity Contribution", href: "/mortgage-equity-contribution" },
   { title: "Personal Pension Plan (PPP)", href: "/personal-pension-plan" },
   { title: "Multi Funds", href: "/multi-funds" },
+  { title: "Uncredited Funds", href: "/uncredited-funds" },
 ]
 
 export const contacts: { title: string; href?: string }[] = [

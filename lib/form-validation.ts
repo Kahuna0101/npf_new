@@ -116,3 +116,14 @@ export const multiFundSchema = z.object({
       message: "You must confirm your consent before submitting",
     }),
 })
+
+export const claimFormSchema = z.object({
+  phone: z
+    .string()
+    .min(10, "Please enter a valid phone number"),
+  email:  z
+    .email("Please enter a valid email address"),
+  pfa: z
+    .string()
+    .min(1, "Please input your Pension Fund Administrator").optional(),
+})

@@ -1,4 +1,5 @@
 "use server"
+import { NextRequest, NextResponse } from "next/server";
 
 export const getDailyUnitPrice = async () => {
 try {
@@ -17,5 +18,28 @@ try {
   } catch (error) {
     console.error("Error fetching unit prices:", error)
     return null
+  }
+};
+
+
+export const getUncreditedFunds = async (search: string) => {
+  if (!search.trim()) return null;
+
+  try {
+    const response = await fetch(
+      `https://online.npfpensions.com.ng/NPFWebAPI/api/S_WEBUSER/GetUncreditedInfo/${encodeURIComponent(search)}`,
+      {
+        cache: "no-store",
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Error fetching data");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    return null;
   }
 };

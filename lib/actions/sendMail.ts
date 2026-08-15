@@ -357,3 +357,62 @@ export async function SendMultiFundFormMail(data: any) {
     };
   }
 }
+
+export async function SendUncreditedFundFormMail(data: any) {
+  try {
+    const {
+      phone,
+      email,
+      pfa
+    } = data;
+
+    const result = await resend.emails.send({
+      from: "NPF Pension <noreply@npfpensions.com.ng>",
+      to: ["contact@npfpensions.com.ng"],
+      subject: "New Uncredited Funds Form Submission",
+
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+          <h2>New Uncredited Funds Form Submission</h2>
+
+          <hr />
+
+          <h3>Claimer Details</h3>
+
+          <p>
+            <strong>Phone Number:</strong>
+            ${phone}
+          </p>
+
+          <p>
+            <strong>Email Address:</strong>
+            ${email}
+          </p>
+
+          <p>
+            <strong>Pension Fund Administrator:</strong>
+            ${pfa || ""}
+          </p>
+
+          <hr />
+
+          <p>
+            This submission was sent from the NPF Pensions website.
+          </p>
+        </div>
+      `,
+    });
+
+    return {
+      success: true,
+      data: result,
+    };
+  } catch (error) {
+    console.error(error);
+
+    return {
+      success: false,
+      error: "Failed to send Uncredited Funds Form submission email",
+    };
+  }
+}
